@@ -1,0 +1,149 @@
+Script started on Sun Sep 23 09:31:41 2018
+[?1034hbash-3.2$ bash divisible.sh 
+Enter a positive integer n from 30 to 60
+40
+divisible by 5
+divisible by 5
+divisible by 5
+divisible by 15
+divisible by 5
+divisible by 5
+divisible by 5
+divisible by 15
+divisible by 5
+divisible by 5
+#!/bin/bash
+## Dara Lim
+## Check if from 1 to the integer n entered by a the user is divible by 5, by 5 ## and by 3 and display the messages if integer divible
+
+echo "Enter a positive integer n from 30 to 60"
+read n
+for (( i = 1; i <= $n; i++ ))
+	do
+		if (( $i % 5 == 0 ))
+			then
+				echo "divisible by 5"
+		fi
+		if (( $i % 5 == 0 && $i % 3 == 0 ))
+			then 
+				echo "divisible by 15"
+		fi		
+done
+
+##Display the content of the script program
+cat divisible.sh
+
+bash-3.2$ bash divisible.sh 
+Enter a positive integer n from 30 to 60
+55
+divisible by 5
+divisible by 5
+divisible by 5
+divisible by 15
+divisible by 5
+divisible by 5
+divisible by 5
+divisible by 15
+divisible by 5
+divisible by 5
+divisible by 5
+divisible by 15
+divisible by 5
+divisible by 5
+#!/bin/bash
+## Dara Lim
+## Check if from 1 to the integer n entered by a the user is divible by 5, by 5 ## and by 3 and display the messages if integer divible
+
+echo "Enter a positive integer n from 30 to 60"
+read n
+for (( i = 1; i <= $n; i++ ))
+	do
+		if (( $i % 5 == 0 ))
+			then
+				echo "divisible by 5"
+		fi
+		if (( $i % 5 == 0 && $i % 3 == 0 ))
+			then 
+				echo "divisible by 15"
+		fi		
+done
+
+##Display the content of the script program
+cat divisible.sh
+
+bash-3.2$ bash divisible.sh 
+Enter a positive integer n from 30 to 60
+60
+divisible by 5
+divisible by 5
+divisible by 5
+divisible by 15
+divisible by 5
+divisible by 5
+divisible by 5
+divisible by 15
+divisible by 5
+divisible by 5
+divisible by 5
+divisible by 15
+divisible by 5
+divisible by 5
+divisible by 5
+divisible by 15
+#!/bin/bash
+## Dara Lim
+## Check if from 1 to the integer n entered by a the user is divible by 5, by 5 ## and by 3 and display the messages if integer divible
+
+echo "Enter a positive integer n from 30 to 60"
+read n
+for (( i = 1; i <= $n; i++ ))
+	do
+		if (( $i % 5 == 0 ))
+			then
+				echo "divisible by 5"
+		fi
+		if (( $i % 5 == 0 && $i % 3 == 0 ))
+			then 
+				echo "divisible by 15"
+		fi		
+done
+
+##Display the content of the script program
+cat divisible.sh
+
+bash-3.2$ bash divisible.sh 
+Enter a positive integer n from 30 to 60
+30
+divisible by 5
+divisible by 5
+divisible by 5
+divisible by 15
+divisible by 5
+divisible by 5
+divisible by 5
+divisible by 15
+#!/bin/bash
+## Dara Lim
+## Check if from 1 to the integer n entered by a the user is divible by 5, by 5 ## and by 3 and display the messages if integer divible
+
+echo "Enter a positive integer n from 30 to 60"
+read n
+for (( i = 1; i <= $n; i++ ))
+	do
+		if (( $i % 5 == 0 ))
+			then
+				echo "divisible by 5"
+		fi
+		if (( $i % 5 == 0 && $i % 3 == 0 ))
+			then 
+				echo "divisible by 15"
+		fi		
+done
+
+##Display the content of the script program
+cat divisible.sh
+
+bash-3.2$ exit
+exit
+
+Script done on Sun Sep 23 09:32:44 2018

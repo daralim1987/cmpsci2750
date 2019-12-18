@@ -1,0 +1,132 @@
+Script started on Sun 02 Dec 2018 09:38:04 PM CST
+]0;dlt7k@delmar:~[?1034h[dlt7k@delmar ~]$ cat hell.c 
+/*Dara Lim
+ * This program is to print the given string in reversing order
+*/
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+void reverse(char *before, char *after){
+    int start, len;
+    int end = 0;
+    len = strlen(before);
+    for(start = len-1; start >= 0; start--)
+    {
+        after[end] = before[start];
+        end++;
+    }
+    after[end] = '\0';
+}
+int main(int argc, char*argv[])
+{
+    char a[50];
+    char b[50];
+    printf("Enter any string: \n");
+    scanf("%s",a);
+    reverse(a,b);
+    printf("The before string is: %s\n", a);
+    printf("The after string is: %s\n", b);
+    return 0;
+}
+
+]0;dlt7k@delmar:~[dlt7k@delmar ~]$ gcc -g hell.c 
+]0;dlt7k@delmar:~[dlt7k@delmar ~]$ gdb
+[?1034hGNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-110.el7
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+(gdb) file.a[K[K[Ke a.out
+Reading symbols from /accounts/students/d/dlt7k/a.out...done.
+(gdb) list 10
+5	#include<stdlib.h>
+6	#include<string.h>
+7	void reverse(char *before, char *after){
+8	    int start, len;
+9	    int end = 0;
+10	    len = strlen(before);
+11	    for(start = len-1; start >= 0; start--)
+12	    {
+13	        after[end] = before[start];
+14	        end++;
+(gdb) br 11
+Breakpoint 1 at 0x400643: file hell.c, line 11.
+(gdb) list 20
+15	    }
+16	    after[end] = '\0';
+17	}
+18	int main(int argc, char*argv[])
+19	{
+20	    char a[50];
+21	    char b[50];
+22	    printf("Enter any string: \n");
+23	    scanf("%s",a);
+24	    reverse(a,b);
+(gdb) br 16
+Breakpoint 2 at 0x40067b: file hell.c, line 16.
+(gdb) list 22
+17	}
+18	int main(int argc, char*argv[])
+19	{
+20	    char a[50];
+21	    char b[50];
+22	    printf("Enter any string: \n");
+23	    scanf("%s",a);
+24	    reverse(a,b);
+25	    printf("The before string is: %s\n", a);
+26	    printf("The after string is: %s\n", b);
+(gdb) br 25
+Breakpoint 3 at 0x4006d8: file hell.c, line 25.
+(gdb) run 3
+Starting program: /accounts/students/d/dlt7k/a.out 3
+Enter any string: 
+LI  linux
+
+Breakpoint 1, reverse (before=0x7fffffffe320 "linux", 
+    after=0x7fffffffe2e0 "\377") at hell.c:11
+11	    for(start = len-1; start >= 0; start--)
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-222.el7.x86_64
+(gdb) display len
+1: len = 5
+(gdb) bt
+#0  reverse (before=0x7fffffffe320 "linux", after=0x7fffffffe2e0 "\377")
+    at hell.c:11
+#1  0x00000000004006d8 in main (argc=2, argv=0x7fffffffe448) at hell.c:24
+(gdb) cont
+Continuing.
+
+Breakpoint 2, reverse (before=0x7fffffffe320 "linux", 
+    after=0x7fffffffe2e0 "xunil") at hell.c:16
+16	    after[end] = '\0';
+1: len = 5
+(gdb) display a
+No symbol "a" in current context.
+(gdb) display before
+2: before = 0x7fffffffe320 "linux"
+(gdb) whatis before
+type = char *
+(gdb) bt
+#0  reverse (before=0x7fffffffe320 "linux", after=0x7fffffffe2e0 "xunil")
+    at hell.c:16
+#1  0x00000000004006d8 in main (argc=2, argv=0x7fffffffe448) at hell.c:24
+(gdb) cont
+Continuing.
+
+Breakpoint 3, main (argc=2, argv=0x7fffffffe448) at hell.c:25
+25	    printf("The before string is: %s\n", a);
+(gdb) bt
+#0  main (argc=2, argv=0x7fffffffe448) at hell.c:25
+(gdb) cont
+Continuing.
+The before string is: linux
+The after string is: xunil
+[Inferior 1 (process 2884) exited normally]
+(gdb) quit
+]0;dlt7k@delmar:~[dlt7k@delmar ~]$ exit
+exit
+
+Script done on Sun 02 Dec 2018 09:51:04 PM CST

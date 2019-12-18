@@ -1,0 +1,45 @@
+Script started on Wed Oct 17 18:03:26 2018
+[?1034hbash-3.2$ cat fileInfo.sh 
+#!/bin/bash
+##Dara Lim
+##Project3 partC
+function fileDir_ex()
+{
+for i in "$@"
+    do
+        if [ -e "$i" ]
+	        then
+                if [ -f "$i" ]
+                    then
+                        echo "$i exist and is a regular file"
+                elif [ -d "$i" ]
+                    then
+                        echo "$i exist and is a directory"
+                else
+                    echo "exist and is a special file"
+                fi
+        else
+	        exit 1
+        fi
+done
+}
+k=$#
+if [ $k -eq 0 ]
+	then 
+		echo "USAGE:fileInfo.sh with multiple file or directory"
+        exit 1
+fi
+
+
+bash-3.2$ source pr[K[KfileInfo.sh contact_one.sh 
+bash-3.2$ fileDir_ex fileInfo.sh 
+fileInfo.sh exist and is a regular file
+bash-3.2$ fileDir_ex fileInfo.sh [K[K[K[K[K[K[K[K[K[K[K[Khello/
+hello/ exist and is a directory
+bash-3.2$ fileDir_ex hello/[K[K[K[K[K[Khello/ contact_one.sh 
+hello/ exist and is a directory
+contact_one.sh exist and is a regular file
+bash-3.2$ source fileInfo.sh 
+USAGE:fileInfo.sh with multiple file or directory
+
+Script done on Wed Oct 17 18:04:57 2018

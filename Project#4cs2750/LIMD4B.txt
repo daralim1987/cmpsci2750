@@ -1,0 +1,26 @@
+Script started on Sun Nov  4 11:57:33 2018
+[?1034hbash-3.2$ cat prit[KntCom.c 
+#include <stdio.h>
+#include <string.h>
+
+int main(int argc, char** argv)
+{
+    printf("The command are:\n");
+    for(int i = argc-1; i > 0; i--){
+        printf("%s ", argv[i]);
+    }
+    printf("\n");
+    return 0;
+
+}
+bash-3.2$ gcc -o reverse my[K[Kpro[KintCom.c 
+bash-3.2$ ./reverse one two three
+The command are:
+three two one 
+bash-3.2$ ./reverse one two three[K[K[K[K[K[K[K[K[K[K[K[K[Kfirst second third
+The command are:
+third second first 
+bash-3.2$ exit
+exit
+
+Script done on Sun Nov  4 11:58:27 2018

@@ -1,0 +1,50 @@
+Script started on Sun Dec  2 21:28:05 2018
+[?1034hbash-3.2$ ls
+LIMD5A.txt	main.c		rootNo.h	rootTwo.c
+delta.c		makefile	rootOne.c	rootTwo.h
+delta.h		rootNo.c	rootOne.h
+bash-3.2$ cat makefile 
+#This is a MakeFile for project#5 partA
+CC = gcc
+CFLAGS = -g
+quadreq: main.o rootNo.o rootOne.o rootTwo.o delta.o
+	$(CC) $(CFLAGS) -lm -o quadreq main.o rootNo.o rootOne.o rootTwo.o delta.o
+main.o: main.c rootNo.h rootOne.h rootTwo.h delta.h
+	$(CC) $(CFLAGS) -c main.c 
+rootNo.o: rootNo.h 
+rootOne.o: rootOne.h 
+rootTwo.o: rootTwo.h 
+delta.o: delta.h 
+bash-3.2$ make
+gcc -g -c main.c 
+[1mmain.c:24:13: [0m[0;1;35mwarning: [0m[1mimplicit declaration of function 'PrTwo' is invalid in
+      C99 [-Wimplicit-function-declaration][0m
+            PrTwo(a, b, rv);
+[0;1;32m            ^
+[0m1 warning generated.
+gcc -g   -c -o rootNo.o rootNo.c
+gcc -g   -c -o rootOne.o rootOne.c
+gcc -g   -c -o rootTwo.o rootTwo.c
+gcc -g   -c -o delta.o delta.c
+gcc -g -lm -o quadreq main.o rootNo.o rootOne.o rootTwo.o delta.o
+bash-3.2$ ls
+LIMD5A.txt	main.c		rootNo.c	rootOne.h	rootTwo.o
+delta.c		main.o		rootNo.h	rootOne.o
+delta.h		makefile	rootNo.o	rootTwo.c
+delta.o		quadreq		rootOne.c	rootTwo.h
+bash-3.2$ ./ua[K[Kquadreq 
+Enter integer coefficients of the quadratic equation: a, b, c 2 -3 5
+returned value = -1
+There are no real solutions. 
+bash-3.2$ ./quadreq 
+Enter integer coefficients of the quadratic equation: a, b, c 3 4 1
+returned value = 4
+There are two real solutions: -0.3333 and -1.0000
+bash-3.2$ ./quadreq 
+Enter integer coefficients of the quadratic equation: a, b, c 4 4 1
+returned value = 0
+There is one real solution: -0.5000
+bash-3.2$ exit
+exit
+
+Script done on Sun Dec  2 21:33:24 2018

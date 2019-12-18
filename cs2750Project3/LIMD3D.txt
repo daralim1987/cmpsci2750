@@ -1,0 +1,84 @@
+Script started on Wed Oct 17 20:21:41 2018
+[?1034hbash-3.2$ cat p3PartD.awk 
+#!/bin/bash
+##Dara Lim
+##Project3 Part D
+
+## Insert the heading
+echo ""
+echo "NAME                  PHONE           JAN |  FEB |  MAR |"
+
+##Changes the word 'Savage' to 'Savauge'
+awk -F: '{sub(/Savage/, "Savauge");printf("%-20s %-16s $%-5s $%-5s $%-5s\n", $1, $2, $3 ,$4 ,$5)}' donors
+
+##Put area code 916 to "specialAreaCode" file name
+awk -F: '$2 ~/916/' donors >> "specialAreaCode"
+
+##Put firstname start with C or E in the file name CEnames
+awk -F: '$1 ~/[CE]/' donors >> "CEnames"
+
+##Put the donation more than 500 to file over500temp
+awk -F: '{if($3+$4+$5>500) printf "%-20s %-16s $%-5s\n", $1, $2, $3+$4+$5}' donors >> "over500temp"
+
+## Sorts by last names
+sort -k 2,2 over500temp >| over500.txt
+
+
+
+
+bash-3.2$ cat donors 
+Mike Harrington:(510) 548-1278:250:100:175                   
+Christian Dobbins:(408) 538-2358:155:90:201                   
+Susan Dalsass:(206) 654-6279:250:60:50 
+Archie McNichol:(206) 548-1348:250:100:175 
+Jody Savage:(206) 548-1278:15:188:150 
+Guy Quigley:(916) 343-6410:250:100:175 
+Dan Savage:(406) 298-7744:450:300:275 
+Nancy McNeil:(206) 548-1278:250:80:75 
+John Goldenrod:(916) 348-4278:250:100:175 
+Chet Main:(510) 548-5258:50:95:135 
+Tom Savage:(408) 926-3456:250:168:200 
+Elizabeth Stachelin:(916) 440-1763:175:75:300
+bash-3.2$ bash p3PartD.awk 
+
+NAME                  PHONE           JAN |  FEB |  MAR |
+Mike Harrington      (510) 548-1278   $250   $100   $175                   
+Christian Dobbins    (408) 538-2358   $155   $90    $201                   
+Susan Dalsass        (206) 654-6279   $250   $60    $50   
+Archie McNichol      (206) 548-1348   $250   $100   $175  
+Jody Savauge         (206) 548-1278   $15    $188   $150  
+Guy Quigley          (916) 343-6410   $250   $100   $175  
+Dan Savauge          (406) 298-7744   $450   $300   $275  
+Nancy McNeil         (206) 548-1278   $250   $80    $75   
+John Goldenrod       (916) 348-4278   $250   $100   $175  
+Chet Main            (510) 548-5258   $50    $95    $135  
+Tom Savauge          (408) 926-3456   $250   $168   $200  
+Elizabeth Stachelin  (916) 440-1763   $175   $75    $300  
+bash-3.2$ cat specialAreaCode 
+Guy Quigley:(916) 343-6410:250:100:175 
+John Goldenrod:(916) 348-4278:250:100:175 
+Elizabeth Stachelin:(916) 440-1763:175:75:300
+bash-3.2$ cat CEnames 
+Christian Dobbins:(408) 538-2358:155:90:201                   
+Chet Main:(510) 548-5258:50:95:135 
+Elizabeth Stachelin:(916) 440-1763:175:75:300
+bash-3.2$ cat over500temp
+Mike Harrington      (510) 548-1278   $525  
+Archie McNichol      (206) 548-1348   $525  
+Guy Quigley          (916) 343-6410   $525  
+Dan Savage           (406) 298-7744   $1025 
+John Goldenrod       (916) 348-4278   $525  
+Tom Savage           (408) 926-3456   $618  
+Elizabeth Stachelin  (916) 440-1763   $550  
+bash-3.2$ cat over500.txt
+John Goldenrod       (916) 348-4278   $525  
+Mike Harrington      (510) 548-1278   $525  
+Archie McNichol      (206) 548-1348   $525  
+Guy Quigley          (916) 343-6410   $525  
+Dan Savage           (406) 298-7744   $1025 
+Tom Savage           (408) 926-3456   $618  
+Elizabeth Stachelin  (916) 440-1763   $550  
+bash-3.2$ exit
+exit
+
+Script done on Wed Oct 17 20:23:13 2018

@@ -1,0 +1,123 @@
+Script started on Sun Sep 23 09:27:56 2018
+[?1034hbash-3.2$ bash info.sh info.sh DE[Kesktop/
+1. Name of script: info.sh
+2. Synopsis: 
+info.sh file_name dir_name
+3. Current date and time: 
+Sun Sep 23 09:28:50 CDT 2018
+4. Username: daralim
+5. Current working directory: /Users/daralim/Desktop
+6. Name of UNIX machine: Daras-MBP.attlocal.net
+7. Name of login shell: /bin/bash
+8. Contents of the file: #!/bin/bash
+## Dara Lim
+## This script's purpose is to display some information as follow
+
+## Check the number of parameters and their types and exit if not two parameter
+if [[ $# > 2 || $# < 2 ]]
+	then
+		echo "More or less parameters"
+		exit 1;
+	else
+	:
+fi
+
+## Check if the file exists
+if [[ -f $1 ]]
+	then 
+		:
+	else
+		echo "File does not exits"
+		exit 1;
+fi
+
+## Check if the directory exits
+if [[ -d $2 ]]
+	then 
+		:
+	else
+		echo "Directory does not exist"
+		exit 1;
+fi
+
+## Store Usage information
+USAGE="$0 file_name dir_name"
+
+## The name of script
+echo -n "1. Name of script: "; echo $0
+
+##Display the usage message
+echo "2. Synopsis: "; echo $USAGE
+
+## Display the current date and time
+echo "3. Current date and time: "
+echo $(date)
+
+##Display the user's name
+echo -n "4. Username: "; echo $USER
+
+##Display the current working directory
+echo -n "5. Current working directory: "; pwd
+
+##Display the name of UNIX machine
+echo -n "6. Name of UNIX machine: "; echo $HOSTNAME
+
+##Display the name of login shell
+echo -n "7. Name of login shell: "; echo $SHELL
+
+##Display the contents of the required file
+echo -n "8. Contents of the file: "; cat $1
+
+##Listing the required directory
+echo "9. List of the directory: "
+ls $2
+
+##Display the total number of parameter of the script
+echo -n "10. Number of paramters: "; echo $#
+
+##Display calender of October
+echo "11. Calendar of October 2018: "
+cal -m October
+
+##Display the disk usage
+echo "12. Disk usage within the file parameter: "; du -hc $1
+
+##Display the current number of user
+echo -n "13. Current number of user in the system: "
+users | wc -w
+
+##Display the current time
+echo -n "14. Current time: "; date +%T
+
+
+
+9. List of the directory: 
+CS1410Homework			cs1440assignment
+JavaHomeWork			cs1440homework7
+cs1440				cs1440homeworkassignment
+cs1440Example			homework4bingo
+10. Number of paramters: 2
+11. Calendar of October 2018: 
+    October 2018      
+Su Mo Tu We Th Fr Sa  
+    1  2  3  4  5  6  
+ 7  8  9 10 11 12 13  
+14 15 16 17 18 19 20  
+21 22 23 24 25 26 27  
+28 29 30 31           
+                      
+12. Disk usage within the file parameter: 
+4.0K	info.sh
+4.0K	total
+13. Current number of user in the system:        1
+14. Current time: 09:28:50
+bash-3.2$ ba[K[Kbash info.sh info.sh Desktop/[K[K[K[K[K[K[K[K
+More or less parameters
+bash-3.2$ bash info.sh info.sh de[Kivisible.sh
+Directory does not exist
+bash-3.2$ bash info.sh info.sh divisible.sh[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[KDesktop/ result.sh
+File does not exits
+bash-3.2$ exit
+exit
+
+Script done on Sun Sep 23 09:30:16 2018

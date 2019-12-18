@@ -1,0 +1,74 @@
+Script started on Wed Oct 17 17:50:09 2018
+[?1034hbash-3.2$ cat contact_one.sh 
+#!/bin/bash
+##Dara Lim
+##Project3 part B
+echo "Enter string"
+read str
+while [[ "$str"=="yes" ]]
+	do
+    echo "Enter pattern"
+    read pattern
+    grep -i "$pattern" << here
+JohnDoe,jdoe@great.com,800-555-1111,California
+JaneDoe,jand@super.edu,876-555-1321,NewYork
+JohnSmith,bsmith@fast.net,780-555-1234,Florida
+PaulWang,pwang@cs.kent.edu,330-672-9050,Ohio
+here
+    if [[ $? == 1 ]]
+        then
+            echo "Pattern not found"
+    fi
+	echo "Enter string yes to find again"
+	read str
+done
+bash-3.2$ bash contact_one.sh 
+Enter string
+yes
+Enter pattern
+doe
+JohnDoe,jdoe@great.com,800-555-1111,California
+JaneDoe,jand@super.edu,876-555-1321,NewYork
+Enter string yes to find again
+yes
+Enter pattern
+Doe
+JohnDoe,jdoe@great.com,800-555-1111,California
+JaneDoe,jand@super.edu,876-555-1321,NewYork
+Enter string yes to find again
+yes
+Enter pattern
+new	
+JaneDoe,jand@super.edu,876-555-1321,NewYork
+Enter string yes to find again
+yes
+Enter pattern
+wang	
+PaulWang,pwang@cs.kent.edu,330-672-9050,Ohio
+Enter string yes to find again
+yes
+Enter pattern
+california
+JohnDoe,jdoe@great.com,800-555-1111,California
+Enter string yes to find again
+yes
+Enter pattern
+555
+JohnDoe,jdoe@great.com,800-555-1111,California
+JaneDoe,jand@super.edu,876-555-1321,NewYork
+JohnSmith,bsmith@fast.net,780-555-1234,Florida
+Enter string yes to find again
+yes
+Enter pattern
+linuxUnix
+Pattern not found
+Enter string yes to find again
+exit
+Enter pattern
+gdfg
+Pattern not found
+Enter string yes to find again
+no
+bash-3.2$ exit
+
+Script done on Wed Oct 17 17:52:59 2018

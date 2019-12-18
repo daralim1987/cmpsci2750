@@ -1,0 +1,58 @@
+Script started on Wed Oct 17 17:47:15 2018
+[?1034hbash-3.2$ cat listEmptyDir.sh 
+#!/bin/bash
+##Dara Lim
+##This script takes a directory as a paramter and loop through all file in this
+##directory and display the file. If the directory is empty, add the directory 
+##to EmptyDir.txt file.
+
+USAGE="$0 directoryName"
+
+if [[ $# != 1 || -f $1 ]]
+    then
+        echo "The number of parameter is not 1 or is a file"
+        echo "Usage:"; echo $USAGE
+        exit 1
+fi
+
+for file in $1/* 
+    do
+        echo "$(basename "$file")"
+		if [[ -d "$file" && -z "$(ls -A "$file")" ]]
+            then
+                echo "$(basename "$file is the empty directory, added to EmptyDir.txt")";
+                echo $file >> EmptyDir.txt;
+        fi
+done
+
+
+bash-3.2$ ls[K[Kcd hello/
+bash-3.2$ ls[K[Kcd ..
+bash-3.2$ bash listEmptyDir.sh hello/
+EmptyDir.txt
+chinese.txt
+cmpci2750
+cmpsci3130
+emptyFolder
+emptyFolder is the empty directory, added to EmptyDir.txt
+korean.txt
+vietnames.txt
+bash-3.2$ bash listEmptyDir.sh hello/[K[K[K[K[K[KlistEmptyDir.sh 
+The number of parameter is not 1 or is a file
+Usage:
+listEmptyDir.sh directoryName
+bash-3.2$ bash listEmptyDir.sh listEmptyDir.sh [K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+The number of parameter is not 1 or is a file
+Usage:
+listEmptyDir.sh directoryName
+bash-3.2$ cd hello/
+bash-3.2$ ls
+EmptyDir.txt	cmpci2750	emptyFolder	vietnames.txt
+chinese.txt	cmpsci3130	korean.txt
+bash-3.2$ cd[K[Kcat EmptyDir.txt 
+hello//emptyFolder
+hello//emptyFolder
+bash-3.2$ exit
+exit
+
+Script done on Wed Oct 17 17:49:08 2018

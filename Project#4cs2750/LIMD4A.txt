@@ -1,0 +1,60 @@
+Script started on Sun Nov  4 11:43:49 2018
+[?1034hbash-3.2$ cat smaLa.c 
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+    char str[100];
+    char smallest[100];
+    char largest[100];
+    printf("Enter word \n");
+    scanf("%s", str);
+    strcpy(smallest, str);
+    strcpy(largest, str);
+    do{
+        printf("Enter word \n");
+        scanf("%s", str);
+        if(strcmp(largest, str) < 0){
+            strcpy(largest, str);
+        }
+        if(strcmp(smallest, str) > 0){
+            strcpy(smallest, str);
+        }
+        
+    }while(strlen(str)!=3);
+    printf("Largest word:%s\n", largest);
+    printf("Smallest word:%s\n", smallest);
+    return 0;
+}
+
+bash-3.2$ gcc smaLa.c 
+bash-3.2$ ./ou[K[Ka.out
+Enter word 
+eleven
+Enter word 
+twentry  y
+Enter word 
+seven
+Enter word 
+two
+Largest word:two
+Smallest word:eleven
+bash-3.2$ gcc[K[K[K./a.out
+Enter word 
+pearc  ch
+Enter word 
+apple
+Enter word 
+orange
+Enter word 
+grape
+Enter word 
+pea
+Largest word:peach
+Smallest word:apple
+bash-3.2$ exit
+exit
+
+Script done on Sun Nov  4 11:45:47 2018

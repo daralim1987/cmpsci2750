@@ -1,0 +1,68 @@
+Script started on Sun Sep 23 09:33:30 2018
+[?1034hbash-3.2$ bash R[Kresult.sh 
+Enter the number of participant you want to find the total score
+3
+Enter the name of participant 1
+Anna
+Enter the first score1
+5
+Enter the second score2
+7
+Enter the third score3
+10
+
+Anna 5 7 10 total: 22 Good luch next time
+Enter the name of participant 2
+Bobby
+Enter the first score1
+8
+Enter the second score2
+9
+Enter the third score3
+9
+
+Bobby 8 9 9 total: 26 Good luck tomorrow
+Enter the name of participant 3
+Cindy
+Enter the first score1
+10
+Enter the second score2
+8
+Enter the third score3
+8
+
+Cindy 10 8 8 total: 26 Good luck tomorrow
+#!/bin/bash
+##Dara Lim
+##This script is to determine if a participant's total score
+##greater than 24 or not. If it is then print the message 
+##"Good luch tommorow" otherwise print "Good luch next time"
+echo "Enter the number of participant you want to find the total score"
+read numName
+for ((i=1; i <= numName; i++ ))
+	do
+		echo "Enter the name of participant $i"
+		read name
+		echo "Enter the first score1"
+		read score1
+		echo "Enter the second score2"
+		read score2
+		echo "Enter the third score3"
+		read score3
+		totalScore=$((score1+score2+score3))
+		echo ""
+		if [[ $totalScore -ge 24 ]]
+			then
+				echo -n "$name $score1 $score2 $score3 total: $totalScore ";				   echo "Good luck tomorrow" 
+			else
+				echo -n "$name $score1 $score2 $score3 total: $totalScore ";				   echo "Good luch next time"
+		fi
+done	
+
+##Display the content of script program
+cat result.sh
+
+bash-3.2$ exit
+exit
+
+Script done on Sun Sep 23 09:35:07 2018

@@ -1,0 +1,55 @@
+Script started on Sun Dec  2 21:24:39 2018
+[?1034hbash-3.2$ cat enc.c 
+//Dara Lim
+//CS2750 project#5 part C
+
+#include <stdio.h>
+#include <ctype.h>
+
+int main(){
+    char keySymbol = '&';
+    char c;
+    printf("Enter several character one-by-one with Cntrl-C\n");
+    printf("or Cntrl-D in the end of a sequence:\n");
+    while((c = getchar())!= EOF ){
+        c = c ^ keySymbol;
+        if(iscntrl(c) != 0){  // c is control character
+            c = c ^ keySymbol;  // get original character
+            getchar();
+            putchar(c);        //display original character
+            putchar('\n');
+        }
+        else{
+            
+            getchar();
+            putchar(c);
+            putchar('\n');
+        }
+        
+    }
+    return 0;
+}
+         
+bash-3.2$ gcc enc.c 
+bash-3.2$ a.[K[K./a.out
+Enter several character one-by-one with Cntrl-C
+or Cntrl-D in the end of a sequence:
+k
+M
+A
+g
+l
+J
+@
+f
+0
+0
+=
+=
+~
+X
+^C
+bash-3.2$ exit
+exit
+
+Script done on Sun Dec  2 21:25:53 2018
